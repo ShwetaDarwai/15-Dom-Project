@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        :root {
+            --clr-primary-1: hsl(205,86%,17%);
+            --clr-primary-2: hsl(205,77%,27%);
+            --clr-primary-3: hsl(205,72%,37%);
+            --clr-primary-4: hsl(205,63%,48%);
+            --clr-primary-5: #49a6e9;
+            --clr-primary-6: hsl(205,89%,70%);
+            --clr-primary-7: hsl(205,90%,76%);
+            --clr-primary-8: hsl(205,86%,81%);
+            --clr-primary-9: hsl(205,90%,88%);
+            --clr-primary-10: hsl(205,100%,96%);
+            --clr-white: #ffffff;
+            --clr-grey-1: #333;
+            --clr-grey-5: #777;
+            --spacing: 0.1rem;
+            --transition: all 0.3s linear;
+            --radius: 0.25rem;
+            letter-spacing: var(--spacing);
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .section-title {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--clr-primary-1);
+        }
+        .section-title p {
+            color: var(--clr-grey-5);
+        }
+        .content-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 0 1.5rem;
+        }
+        .image-container, .text-container {
+            flex: 1;
+            min-width: 300px;
+            margin: 1rem;
+        }
+        .image-container img {
+            width: 100%;
+            display: block;
+            border-radius: var(--radius);
+            box-shadow: var(--transition);
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .tab-button {
+            background: var(--clr-primary-5);
+            color: var(--clr-white);
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 0 0.25rem;
+            border-radius: var(--radius);
+        }
+        .tab-button:hover:not(.active-tab) {
+            background: var(--clr-primary-10);
+            color: var(--clr-primary-5);
+        }
+        .tab-button.active-tab {
+            background: var(--clr-white);
+            color: var(--clr-primary-5);
+            box-shadow: 0 2px var(--clr-primary-5);
+        }
+        .text-content {
+            padding: 2rem 1.5rem;
+            border-bottom-left-radius: var(--radius);
+            border-top-right-radius: var(--radius);
+            background: var(--clr-white);
+            box-shadow: var(--transition);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active-content {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .button-group {
+                flex-direction: column;
+            }
+            .tab-button {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="section-title">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="content-container">
+            <article class="image-container">
+                <img src="./imgscrl.jpeg" alt="about picture"/>
+            </article>
+            <article class="text-container">
+                <div class="button-group">
+                    <button class="tab-button active-tab" data-id="history-content">History</button>
+                    <button class="tab-button" data-id="vision-content">Vision</button>
+                    <button class="tab-button" data-id="goals-content">Goals</button>
+                </div>
+                <article class="text-content">
+                    <div class="tab-content active-content" id="history-content">
+                        <h4>History</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam sint facere obcaecati consequatur delectus, quia beatae laborum quidem atque eaque eligendi assumenda saepe, minima, numquam totam molestiae accusamus deserunt culpa. Excepturi consequatur soluta fugit ab autem amet! Sed sit, maxime, voluptate tenetur debitis mollitia nihil placeat magnam asperiores eum deserunt doloribus? Eius, natus fugit. Corrupti, dolore ab. Debitis, ducimus adipisci.</p>
+                    </div>
+                    <div class="tab-content" id="vision-content">
+                        <h4>Vision</h4>
+                        <p>Consectetur adipisicing elit. Deleniti similique tempore temporibus nihil odit nostrum reiciendis, debitis dolorem aperiam excepturi sequi qui autem veniam ratione maiores quis incidunt! Et, fuga. Cupiditate magni id dignissimos aliquam sapiente, quia cum modi veritatis quis obcaecati doloribus magnam ipsam dicta! Eum perferendis quam itaque temporibus recusandae aperiam saepe ullam, odio optio quisquam, esse velit?</p>
+                    </div>
+                    <div class="tab-content" id="goals-content">
+                        <h4>Goals</h4>
+                        <p>Adipisicing elit. Odio ea atque labore nesciunt, aliquid dolor id maiores nihil? Autem, quidem veritatis? Omnis optio et dolorum quos, quo quasi? Dolores, eos! Hic sequi accusantium voluptates at ea modi ducimus commodi vitae voluptatem, laborum velit excepturi necessitatibus et placeat quod nulla tempore sapiente fuga quam dolore. Accusantium saepe nesciunt dignissimos dolore? Ullam!</p>
+                    </div>
+                </article>
+            </article>
+        </div>
+    </section>
+    <script>
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active-tab'));
+                button.classList.add('active-tab');
+
+                const id = button.dataset.id;
+                tabContents.forEach(content => {
+                    content.classList.remove('active-content');
+                    if (content.id === id) {
+                        content.classList.add('active-content');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

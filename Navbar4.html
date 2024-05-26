@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavBar</title>
+    <link rel="stylesheet" href="./navstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
+</head>
+<body>
+  <nav>
+    <div class="navcenter">
+      <div class="navheader">
+        <img src="./codelogo.jpeg" alt="logo" class="logo">
+        <button class="nav-toggle">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+      <ul class="links">
+        <li><a href="index.html" class="h">Home</a></li>
+        <li><a href="about.html" class="h">About</a></li>
+        <li><a href="Projects.html" class="h">Projects</a></li>
+        <li><a href="contact.html" class="h">Contact</a></li>
+      </ul>
+      <ul class="social-media">
+        <li><a href="https://x.com/settings/account?lang=en">
+          <i class="fa-brands fa-twitter s"></i></a>
+        </li>
+        <li><a href="https://x.com/settings/account?lang=en">
+          <i class="fa-brands fa-facebook-f s"></i></a>
+        </li>
+        <li><a href="https://x.com/settings/account?lang=en">
+          <i class="fa-brands fa-behance s"></i></a>
+        </li>
+        <li><a href="https://x.com/settings/account?lang=en">
+          <i class="fa-brands fa-linkedin-in s"></i></a>
+        </li>
+        <li><a href="#"><i class="fa-solid fa-gem s"></i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <ul class="link">
+    <li><a href="index.html">home</a></li>
+    <li><a href="about.html">about</a></li>
+    <li><a href="projects.html">projects</a></li>
+    <li><a href="contact.html">contact</a></li>
+  </ul>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navToggle = document.querySelector('.nav-toggle');
+      const links = document.querySelector('.links');
+  
+      navToggle.addEventListener('click', function() {
+        links.classList.toggle('show-links');
+      });
+    });
+  </script>
+</body>
+</html>

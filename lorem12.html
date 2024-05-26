@@ -1,0 +1,98 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem Ipsum Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .sec-center {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+        h3 {
+            margin-top: 0;
+        }
+        .lorem-form {
+            margin-bottom: 20px;
+        }
+        #amount {
+            width: 50px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .btn {
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: lightblue;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: deepskyblue;
+        }
+        .lorem-text p {
+            text-align: left;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <section class="sec-center">
+        <h3>Tired of boring Lorem Ipsum?</h3>
+        <form class="lorem-form">
+            <label for="amount">Paragraphs:</label>
+            <input type="number" name="amount" id="amount" placeholder="5">
+            <button type="submit" class="btn">Generate</button>
+        </form>
+        <article class="lorem-text"></article>
+    </section>
+    <script>
+        const text = [
+            `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum, arcu vel cursus lacinia, tortor metus sollicitudin nisl, ut cursus orci ipsum ut tortor.`,
+            `Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean a felis ut nisi dapibus dignissim. Integer auctor nibh sit amet sapien sagittis, nec fermentum nisi consectetur.`,
+            `Ut scelerisque lorem in dolor fermentum, nec dictum arcu vestibulum. Fusce euismod lectus at justo faucibus efficitur. Aliquam erat volutpat. Sed vel urna nec libero aliquam vestibulum.`,
+            `Mauris scelerisque, dui id suscipit malesuada, ligula metus pellentesque velit, sit amet blandit ex ligula in lacus. Morbi commodo est sed eros ullamcorper, et aliquet massa iaculis.`,
+            `Quisque scelerisque ligula ut magna pretium, vel tincidunt arcu ultricies. Cras volutpat, mi sit amet faucibus pharetra, justo ligula fermentum ex, ac fermentum massa sapien sit amet nunc.`
+        ];
+
+        const form = document.querySelector(".lorem-form");
+        const amount = document.getElementById("amount");
+        const result = document.querySelector(".lorem-text");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const value = parseInt(amount.value);
+            const random = Math.floor(Math.random() * text.length);
+
+            if (isNaN(value) || value <= 0 || value > text.length) {
+                result.innerHTML = `<p class="result">${text[random]}</p>`;
+            } else {
+                let temp = text.slice(0, value);
+                temp = temp.map(function(item) {
+                    return `<p class="result">${item}</p>`;
+                }).join("");
+                result.innerHTML = temp;
+            }
+        });
+    </script>
+</body>
+</html>

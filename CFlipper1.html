@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color Flipper</title>
+    <style>
+        .container {
+            text-align: center; /* Optional: centers the content */
+        }
+        .color{
+            display: block;
+        }
+        #btn {
+            padding: 10px 20px;
+            background-color: #e4186d;
+            color: white;
+            border: 2px solid black;
+            border-radius: 5px;
+            text-align: center;
+            margin: 10px;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h2 class="bg" >Background Color :</h2>
+        <span class="color">#f1f5f8</span>
+        <button id="btn" class="btn">Click Me</button>
+    </div>
+    <script>
+        const colors =["red","green","rgba(122,133,199)","#f15025"];
+        
+        const btn = document.getElementById("btn");
+        const color = document.querySelector(".color");
+
+        btn.addEventListener("click", function(){
+            const randomNumber = getRandomNum();
+            console.log(randomNumber);
+            document.body.style.backgroundColor = colors[randomNumber];
+            color.textContent = colors[randomNumber];
+        })
+        function getRandomNum(){
+            return Math.floor(Math.random()*colors.length);
+        }
+    </script>
+</body>
+</html>

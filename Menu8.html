@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu-Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .title{
+            text-align: center;
+            font-size: xx-large;
+        }
+        .underline{
+            width: 100px;
+            height: 4px;
+            background-color: #2C5F2D;
+            margin: 0 auto;
+            position: relative;
+            bottom: 30px;
+        }
+        .photo{
+            height: 200px;
+            width: 250px;
+            border: 5px solid #97BC62FF;
+            border-radius: 25px;
+        }
+        header{
+            font-family: monospace;
+            font-size: x-large;
+            color: #2C5F2D;
+        }
+        .price {
+            color: #2C5F2D;
+            font-size: x-large;
+        }
+        .item-info header {
+            display: flex;
+            justify-content: space-between;
+        }
+        hr{
+            width: 250px;
+            border: 1px dashed;
+            margin: 0;
+            position: relative;
+            bottom: 20px;
+        }
+        .sec-center{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 250px;
+        }
+        .filter-btn{
+            position: relative;
+            bottom: 30px;
+            border: 2px solid #2C5F2D;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        .filter-btn:hover {
+            background-color: rgb(173, 211, 121);
+        }
+
+    </style>
+</head>
+<body>
+    <section class="menu">
+        <div class="title">
+            <h2>Our Menu</h2>
+            <div class="underline"></div>
+            <div  class="btn-continer">
+                <button class="filter-btn" type="button" data-id="All">All</button>
+                <button class="filter-btn" type="button" data-id="breakfast">Breakfast</button>
+                <button class="filter-btn" type="button" data-id="lunch">Lunch</button>
+                <button class="filter-btn" type="button" data-id="dinner">Dinner</button>
+                <button class="filter-btn" type="button" data-id="shake">Shake</button>
+            </div>
+        </div>
+        <div class="sec-center">
+            <!-- Js inject the menu items here -->
+        </div>
+    </section>
+
+    <script>
+        const menu = [
+            {
+                id: 1,
+                title: "Dosa",
+                Category: "breakfast",
+                price: 12.22,
+                img: "breakfast1.jpg",
+                desc: "Dosa Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nisi.",
+            },
+            {
+                id: 2,
+                title: "Anda-Curry",
+                Category: "dinner",
+                price: 13.43,
+                img: "dinner1.jpeg",
+                desc: "Dinner1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nisi.",
+            },
+            {
+                id: 3,
+                title: "Indian-Plate",
+                Category: "lunch",
+                price: 73.43,
+                img: "lunch1.jpg",
+                desc: "Lunch1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nisi.",
+            },
+            {
+                id: 4,
+                title: "Bhindi-Chapati",
+                Category: "dinner",
+                price: 63.43,
+                img: "dinner2.jpeg",
+                desc: "Dinner2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nisi.",
+            },
+            {
+                id: 5,
+                title: "Veg-Palete",
+                Category: "lunch",
+                price: 13.3,
+                img: "lunch2.jpeg",
+                desc: "Lunch2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nisi.",
+            },
+            {
+                id: 6,
+                title: "Spicy-Paneer",
+                Category: "dinner",
+                price: 33.43,
+                img: "dinner3.jpeg",
+                desc: "Dinner3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nisi.",
+            },
+            {
+                id: 7,
+                title: "Almond-Shake",
+                Category: "shake",
+                price: 12.43,
+                img: "shake1.jpeg",
+                desc: "Shake1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nisi.",
+            },
+            {
+                id: 8,
+                title: "Choco-Shake",
+                Category: "shake",
+                price: 136.43,
+                img: "shake2.jpeg",
+                desc: "Shake2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nisi.",
+            },
+            {
+                id: 9,
+                title: "Welvet-shake",
+                Category: "shake",
+                price: 15.43,
+                img: "shake3.jpeg",
+                desc: "Shake3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nisi.",
+            },
+            {
+                id: 10,
+                title: "Usal",
+                Category: "breakfast",
+                price: 14.43,
+                img: "usalbf.jpeg",
+                desc: "Usal Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nisi.",
+            }
+        ];
+
+        const sectionCenter = document.querySelector(".sec-center");
+        const filterBtn = document.querySelectorAll(".filter-btn");
+
+
+            // load item
+        window.addEventListener("DOMContentLoaded", function () {
+            displayMenuItem(menu);
+        });
+
+// filter 
+        filterBtn.forEach(function(btn){
+            btn.addEventListener("click",function(e){
+                const Category =e.currentTarget.dataset.id;
+                const menuCategory = menu.filter(function(menuItems){
+                //    console.log(menuItems.Category)
+                if (menuItems.Category === Category){
+                    return menuItems;
+                }
+                    
+                });
+                // console.log(menuCategory);
+                if (Category === "All"){
+                    displayMenuItem(menu)
+                }
+                else {
+                    displayMenuItem(menuCategory)
+                }
+            })
+        })
+
+
+
+
+
+
+        
+        
+        
+        function  displayMenuItem(menuItems){
+            let displayMenu = menuItems.map(function (item) {
+                return `<article class="menu-item">
+                            <img src=${item.img} class="photo" alt=${item.title} />
+                            <div class="item-info">
+                                <header>
+                                    <h4>${item.title}</h4>
+                                    <h4 class="price">$${item.price}</h4>
+                                </header>
+                                <hr>
+                                <p class="item-text">${item.desc}</p>
+                            </div>
+                        </article>`;
+            });
+            displayMenu = displayMenu.join("");
+
+            sectionCenter.innerHTML = displayMenu;
+
+        }
+
+    </script>
+</body>
+</html>

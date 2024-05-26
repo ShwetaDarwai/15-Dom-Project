@@ -1,0 +1,107 @@
+.navcenter {
+    border: 1px solid black;
+    height: 80px;
+    width: 100%;
+    max-width: 1275px;
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.355);
+    padding: 0 20px;
+}
+.logo {
+    position: relative;
+    top: 10px;
+}
+.nav-toggle {
+    float: right;
+    margin: 30px;
+    height: 30px;
+    width: 35px;
+    display: none; /* Hide the button by default */
+}
+.h {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    font-family: monospace;
+    padding: 5px;
+    position: relative;
+}
+.h::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: black;
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
+}
+.h:hover::after {
+    width: 100%;
+    left: 0;
+    background: black;
+}
+.links {
+    display: flex;
+    list-style-type: none;
+    position: relative;
+    bottom: 40px;
+    left: 350px;
+}
+.social-media {
+    display: flex;
+    list-style-type: none;
+    position: relative;
+    bottom: 80px;
+    left: 890px;
+}
+.s {
+    padding: 7px;
+    color: rgb(28, 151, 199);
+}
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block; /* Show the button on small screens */
+    }
+    .links {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        background-color: white;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    .links.show-links {
+        display: flex;
+    }
+    .social-media {
+        display: none; /* Hide social media icons on small screens */
+    }
+    .navheader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+}
+button {
+    transform: rotate(-90deg);
+    transition: transform 0.3s ease;
+}
+button:hover {
+    transform: rotate(0deg);
+}
+.link {
+    display: none;
+    flex-direction: column;
+
+}
+.link.show-links {
+    display: flex;
+
+}
